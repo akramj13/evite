@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "strict": true,
+    "outDir": "../dist/app",
+    "rootDir": "./",
+    "esModuleInterop": true
+  },
+  "include": ["**/*.ts"]
+}

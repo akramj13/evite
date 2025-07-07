@@ -1,0 +1,25 @@
+{
+  "name": "evite-template",
+  "version": "1.0.0",
+  "description": "A template for building Electron Apps",
+  "license": "ISC",
+  "author": "Limitless Labs",
+  "main": "dist/app/main.js",
+  "scripts": {
+    "setup": "bash setup.sh",
+    "dev": "concurrently \"npm run build:main -- --watch\" \"npm run dev:renderer\" \"npm run dev:electron\"",
+    "dev:renderer": "cd main && npm run dev",
+    "dev:electron": "wait-on http://localhost:5173 && cross-env NODE_ENV=development electron ./dist/app/main.js",
+    "build:main": "tsc -p app/tsconfig.json",
+    "build:renderer": "cd main && npm run build",
+    "build": "npm run build:main && npm run build:renderer",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^37.2.0",
+    "typescript": "^5.8.3",
+    "wait-on": "^8.0.3"
+  }
+}
